@@ -1,8 +1,10 @@
 import './Address.scss';
 
-export function Address({address}) {
+export function Address({address, onClick}) {
+
+
   return (
-    <div className="Address">
+    <div className="Address" onClick={onClick}>
      <p>{address}</p>
     </div>
   );
