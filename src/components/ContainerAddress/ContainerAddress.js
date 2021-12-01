@@ -1,13 +1,10 @@
 import { Address } from '../Address/Address';
 import './ContainerAddress.scss';
 
-export function ContainerAddress() {
-  let data = require('../../state.json');
-  console.log(data.pickPoints[0].address);
-
+export function ContainerAddress({ address, onClick }) {
   return (
     <div className="ContainerAddress">
-      <Address address={data.pickPoints[0].address}/>
+      <Address address={address} onClick={onClick}/>
     </div>
   );
 }
