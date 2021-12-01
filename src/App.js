@@ -1,12 +1,12 @@
 import './App.scss';
-import { Contacts } from './components/Contacts/Contacts';
-import { Map } from './components/Map/Map';
+import { ContainerAddress } from './components/ContainerAddress/ContainerAddress';
+import { ContainerMap } from './components/ContainerMap/ContainerMap';
 
 function App() {
   return (
     <div className="App">
-     <Contacts />
-     <Map />
+     <ContainerAddress />
+     <ContainerMap />
     </div>
   );
 }
