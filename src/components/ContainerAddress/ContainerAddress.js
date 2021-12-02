@@ -1,10 +1,20 @@
 import { Address } from '../Address/Address';
 import './ContainerAddress.scss';
 
-export function ContainerAddress({ address, latitude, onClick }) {
+export function ContainerAddress({ data, onClick }) {
   return (
     <div className="ContainerAddress">
-      <Address address={address} onClick={onClick} latitude={latitude}/>
+      {data.map((card) => (
+      <Address
+        key={card.address}
+        address={card.address}
+        latitude={card.latitude}
+        longitude={card.longitude}
+        budgets={card.budgets}
+        onClick={onClick}
+      />
+      ))}
+
     </div>
   );
 }

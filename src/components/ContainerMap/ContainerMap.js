@@ -9,21 +9,23 @@ export function ContainerMap({ coordinate }) {
         <Map
           defaultState={{
             center: [coordinate.x, coordinate.y],
-            zoom: 12,
+            zoom: 5,
             controls: ['zoomControl', 'fullscreenControl'],
             yandexMapDisablePoiInteractivity: true,
           }}
-          modules={['control.ZoomControl', 'control.FullscreenControl']}
+          modules={['control.ZoomControl', 'control.FullscreenControl', 'layout.ImageWithContent']}
           className="ContainerMap__map"
         >
           <Polygon
             geometry={[coordinate.x, coordinate.y]}
-            options={{ visible: false }}
+            options={{
+              preset: 'islands#redIcon',
+            }}
           />
           <Placemark geometry={[coordinate.x, coordinate.y]} />
+          
         </Map>
       </YMaps>
     </div>
   );
 }
-
