@@ -1,25 +1,29 @@
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import { useEffect } from 'react';
+import { YMaps, Map, Placemark, Polygon } from 'react-yandex-maps';
 
 import './ContainerMap.scss';
 
 export function ContainerMap({ coordinate }) {
-
   return (
     <div className="ContainerMap">
-     <YMaps>
+      <YMaps>
         <Map
           defaultState={{
             center: [coordinate.x, coordinate.y],
             zoom: 12,
             controls: ['zoomControl', 'fullscreenControl'],
+            yandexMapDisablePoiInteractivity: true,
           }}
           modules={['control.ZoomControl', 'control.FullscreenControl']}
           className="ContainerMap__map"
         >
-        <Placemark geometry={[coordinate.x, coordinate.y]} />
+          <Polygon
+            geometry={[coordinate.x, coordinate.y]}
+            options={{ visible: false }}
+          />
+          <Placemark geometry={[coordinate.x, coordinate.y]} />
         </Map>
       </YMaps>
     </div>
   );
 }
+
