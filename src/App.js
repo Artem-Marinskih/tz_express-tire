@@ -17,17 +17,23 @@ function App() {
 
   const getTarget = (e) => {
     e.preventDefault();
-
+    let target = e.target
+console.log(target)
     setCoordinate((prev) => ({
       ...prev,
       x: (prev.x = latitude),
       y: (prev.y = longitude),
     }));
+
+    console.log('click', coordinate)
   };
 
   return (
     <div className="App">
-      <ContainerAddress address={data.pickPoints[1].address} onClick={getTarget} />
+      {data.pickPoints.map((card) => (
+        <ContainerAddress address={card.address} latitude={card.latitude} onClick={getTarget} />
+      ))}
+      
       <ContainerMap coordinate={coordinate}/>
     </div>
   );
