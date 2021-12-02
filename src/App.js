@@ -5,10 +5,6 @@ import { useState } from 'react';
 
 function App() {
   let data = require('./state.json');
-  console.log(data.pickPoints[0]);
-
-  let latitude = data.pickPoints[1].latitude;
-  let longitude = data.pickPoints[1].longitude;
 
   const [coordinate, setCoordinate] = useState({
     x: 56.8519,
@@ -17,24 +13,20 @@ function App() {
 
   const getTarget = (e) => {
     e.preventDefault();
-    let target = e.target
-console.log(target)
+    let target = e.currentTarget;
+
     setCoordinate((prev) => ({
       ...prev,
-      x: (prev.x = latitude),
-      y: (prev.y = longitude),
+      x: (prev.x = +target.attributes[1].nodeValue),
+      y: (prev.y = +target.attributes[2].nodeValue),
     }));
-
-    console.log('click', coordinate)
   };
 
   return (
     <div className="App">
-      {data.pickPoints.map((card) => (
-        <ContainerAddress address={card.address} latitude={card.latitude} onClick={getTarget} />
-      ))}
-      
-      <ContainerMap coordinate={coordinate}/>
+      <ContainerAddress data={data.pickPoints} onClick={getTarget} />
+
+      <ContainerMap coordinate={coordinate} />
     </div>
   );
 }
