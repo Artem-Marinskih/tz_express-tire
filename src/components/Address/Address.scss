@@ -15,11 +15,11 @@ button:hover {
 .Address {
   display: flex;
   flex-direction: column;
-  width: 98%;
-  height: 100px;
+  width: 600px;
   padding-left: 20px;
+  padding-bottom: 10px;
   background-color: #3a3d3e;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
   &__text {
     font-size: 20px;
@@ -31,4 +31,23 @@ button:hover {
 .Address:hover {
   background-color: #404749;
   box-shadow: none;
+}
+
+@media screen and (max-width: 1256px) {
+  .Address {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  button {
+    margin-bottom: 5px;
+  }
+  .Address {
+    width: 320px;
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }

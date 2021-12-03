@@ -2,8 +2,16 @@
   width: 50%;
 
   &__map {
-    width: 600px;
+    max-width: 600px;
     height: 500px;
     margin: 10px
+  }
+}
+
+@media screen and (max-width: 1256px) {
+  .ContainerMap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }
