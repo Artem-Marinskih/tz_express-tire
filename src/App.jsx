@@ -12,15 +12,12 @@ function App() {
     zoom: 12
   });
 
-  const getTarget = (e) => {
-    e.preventDefault();
-    let target = e.currentTarget;
-
+  const getTarget = ({x, y}) => {
     setCoordinate((prev) => ({
       ...prev,
-      x: (prev.x = +target.attributes[1].nodeValue),
-      y: (prev.y = +target.attributes[2].nodeValue),
-      zoom: prev.zoom = 17
+      x,
+      y,
+      zoom: 17
     }));
   };
 

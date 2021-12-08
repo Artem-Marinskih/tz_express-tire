@@ -1,17 +1,15 @@
 import './Address.scss';
 
 export function Address({ address, latitude, longitude, budgets, onClick }) {
-const handleClick = (e) => {
-  e.stopPropagation();
-
-  console.log('handleClick');
-}
+  const handleClick = () => {
+    onClick({ x: latitude, y: longitude });
+  };
   return (
-    <div className="Address" latitude={latitude} longitude={longitude} onClick={onClick}>
+    <div className="Address" onClick={handleClick}>
       <p className="Address__text">{address}</p>
       <div className="Address__buttons">
         {budgets.map((buttons) => (
-          <button key={buttons} onClick={handleClick}>
+          <button className="Address__button" key={buttons}>
             {buttons}
           </button>
         ))}
