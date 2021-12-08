@@ -9,6 +9,7 @@ function App() {
   const [coordinate, setCoordinate] = useState({
     x: 56.8519,
     y: 60.6122,
+    zoom: 12
   });
 
   const getTarget = (e) => {
@@ -19,6 +20,7 @@ function App() {
       ...prev,
       x: (prev.x = +target.attributes[1].nodeValue),
       y: (prev.y = +target.attributes[2].nodeValue),
+      zoom: prev.zoom = 17
     }));
   };
 
