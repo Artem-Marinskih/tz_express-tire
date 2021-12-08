@@ -1,30 +1,35 @@
-button {
-  margin-right: 20px;
-  padding: 5px 10px;
-  text-align: center;
-  background-color: #2a2c2d;
-  font-size: 15px;
-  color: #6b6f71;
-  border: none;
-}
-
-button:hover {
-  background-color: #133e49;
-}
-
 .Address {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 600px;
-  padding-left: 20px;
-  padding-bottom: 10px;
+  margin-bottom: 8px;
+  padding: 9px 14px;
   background-color: #3a3d3e;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
   &__text {
+    margin: 0;
+    margin-bottom: 14px;
     font-size: 20px;
     font-weight: 500;
+    color: #000;
+  }
+
+  &__button {
+    min-width: 95px;
+    margin-right: 12px;
+    padding: 5px 10px;
+    text-align: center;
+    background-color: #2a2c2d;
+    font-size: 15px;
     color: #6b6f71;
+    border: none;
+    border-radius: 3px;
+  }
+
+  &__button:hover {
+    background-color: #133e49;
   }
 }
 
@@ -35,19 +40,22 @@ button:hover {
 
 @media screen and (max-width: 1256px) {
   .Address {
+    // width: 100%;
     margin-bottom: 10px;
   }
 }
 
 @media screen and (max-width: 770px) {
-  button {
-    margin-bottom: 5px;
-  }
+  
   .Address {
     width: 320px;
     &__buttons {
       display: flex;
       flex-direction: column;
+    }
+
+    &__button {
+      margin-bottom: 5px;
     }
   }
 }
