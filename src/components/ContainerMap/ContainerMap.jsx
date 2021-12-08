@@ -1,15 +1,18 @@
+import { useSelector } from 'react-redux';
 import { YMaps, Map, Placemark, Polygon } from 'react-yandex-maps';
-import { Coordinate } from '../../store/actions'
+
 import './ContainerMap.scss';
 
 export function ContainerMap() {
+  const coordinate = useSelector((state) => state.coordinate);
+
   return (
     <div className="ContainerMap">
       <YMaps>
         <Map
           state={{
-            center: [Coordinate.x, Coordinate.y],
-            zoom: Coordinate.zoom,
+            center: [coordinate.x, coordinate.y],
+            zoom: coordinate.zoom,
             controls: ['zoomControl', 'fullscreenControl'],
             yandexMapDisablePoiInteractivity: true,
           }}
@@ -17,13 +20,12 @@ export function ContainerMap() {
           className="ContainerMap__map"
         >
           <Polygon
-            geometry={[Coordinate.x, Coordinate.y]}
+            geometry={[coordinate.x, coordinate.y]}
             options={{
               preset: 'islands#redIcon',
             }}
           />
-          <Placemark geometry={[Coordinate.x, Coordinate.y]} />
-          
+          <Placemark geometry={[coordinate.x, coordinate.y]} />
         </Map>
       </YMaps>
     </div>
