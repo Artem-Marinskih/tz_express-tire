@@ -7,9 +7,9 @@ export function ContainerMap({ coordinate }) {
     <div className="ContainerMap">
       <YMaps>
         <Map
-          defaultState={{
+          state={{
             center: [coordinate.x, coordinate.y],
-            zoom: 5,
+            zoom: coordinate.zoom,
             controls: ['zoomControl', 'fullscreenControl'],
             yandexMapDisablePoiInteractivity: true,
           }}

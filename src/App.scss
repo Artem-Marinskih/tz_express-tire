@@ -5,3 +5,11 @@
   padding: 5px;
   background-color: #2a2c2d;
 }
+
+@media screen and (max-width: 1256px){
+  .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+}
