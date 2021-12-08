@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
 import App from './App';
-// import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { store } from './store/store'
+import { store } from './store/store';
 
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,5 +14,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// reportWebVitals();

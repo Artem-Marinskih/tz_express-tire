@@ -1,18 +1,21 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCoordinate } from '../../store/actions';
+
 import './Address.scss';
 
 export function Address({ address, latitude, longitude, budgets }) {
-  // const handleClick = () => {
-  //   onClick({ x: latitude, y: longitude });
-  // };
+  const coordinateFromAddress = {
+    x: latitude,
+    y: longitude,
+    zoom: 17,
+  };
 
   const dispatch = useDispatch();
 
-  const onAddressClick = useCallback((e) => {
-    dispatch(getCoordinate());
-  }, []);
+  const onAddressClick = useCallback(() => {
+    dispatch(getCoordinate(coordinateFromAddress));
+  }, [dispatch]);
 
   return (
     <div className="Address" onClick={onAddressClick}>

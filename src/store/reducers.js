@@ -1,14 +1,20 @@
-import { COORDINATE, Coordinate } from './actions';
+import { COORDINATE } from './actions';
 
-export function reducer(state = Coordinate, action) {
-  console.log(state)
+const INITIAL_STATE = {
+  coordinate: {
+    x: 56.8519,
+    y: 60.6122,
+    zoom: 12,
+  },
+};
+
+export function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case COORDINATE:
-      return { 
-        ...state, 
-        x: 57.8519,
-        y: 60.6122,
-        zoom: 17 };
+      return {
+        ...state,
+        coordinate: action.coordinateFromAddress,
+      };
 
     default:
       return state;
