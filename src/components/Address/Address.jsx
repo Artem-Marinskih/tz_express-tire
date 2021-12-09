@@ -1,21 +1,21 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCoordinate } from '../../store/actions';
 
 import './Address.scss';
 
 export function Address({ address, latitude, longitude, budgets }) {
-  const coordinateFromAddress = {
+  const coordinateFromAddress = useMemo(() => ({
     x: latitude,
     y: longitude,
     zoom: 17,
-  };
+  }), [latitude, longitude]);
 
   const dispatch = useDispatch();
 
   const onAddressClick = useCallback(() => {
     dispatch(getCoordinate(coordinateFromAddress));
-  }, [dispatch]);
+  }, [dispatch, coordinateFromAddress]);
 
   return (
     <div className="Address" onClick={onAddressClick}>
